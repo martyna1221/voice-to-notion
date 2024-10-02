@@ -1,0 +1,7 @@
+streamlit
+openai
+toml
+requests
+google-cloud-firestore
+pandas
+python-dotenv
