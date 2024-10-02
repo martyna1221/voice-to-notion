@@ -1,7 +1,6 @@
 streamlit
+audiorecorder
+whisper
 openai
-toml
-requests
-google-cloud-firestore
-pandas
-python-dotenv
+pydantic
+notion-client

@@ -1,11 +1,9 @@
 from dotenv import load_dotenv
-from google.cloud import firestore
 import os
 from openai import OpenAI
+from notion_client import Client
 
 load_dotenv()
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './key.json'
-
-db = firestore.Client()
-# ai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+ai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+notion = Client(auth=os.getenv('NOTION_API_KEY'))
