@@ -1,7 +1,8 @@
 # Voice to Notion
 
 This project allows you to convert voice inputs into Notion database entries using OpenAI's API.
-![](https://voice-to-notion/Voice-to-TicketCreator.gif)
+
+![Voice-to-TicketCreator](Voice-to-TicketCreator.gif)
 
 ## Getting Started
 
