@@ -1,6 +1,7 @@
 streamlit
-audiorecorder
-whisper
+openai-whisper
 openai
 pydantic
 notion-client
+streamlit-audiorecorder
+python-dotenv

@@ -1,14 +1,23 @@
 from applications import ai_client
 from pydantic import BaseModel, ValidationError
 from typing import List
+from enum import Enum
 from datetime import date
 import json
+
+# Define the Priority Enum based on the options in your screenshot
+class Priority(str, Enum):
+    critical = 'Critical'
+    urgent = 'Urgent'
+    normal = 'Normal'
+    low_priority = 'Low Priority'
+    icing = 'Icing'
 
 # Define your Ticket model using Pydantic
 class Ticket(BaseModel):
     # author: str
     project: str
-    priority: str
+    priority: Priority
     due_date: date
     description: str
 
@@ -20,7 +29,10 @@ def ask_chatgpt(prompt):
     # Define the function schema using the Tickets class schema
     function_schema = {
         'name': 'createTickets',
-        'description': 'Generate tickets based on the provided transcription.', # TODO: include today's date; GPT is stuck in 2023
+        'description': f"""Generate tickets based on the provided transcription. The field Priority can only take on a couple of options: 
+        {', '.join([priority.value for priority in Priority])}.
+        Today's date is {date.today().isoformat()}.
+        The descriptions should be consice and clear but descriptive. I want good grammar as well.""",
         'parameters': Tickets.schema()  # Use Tickets schema
     }
     # Call the OpenAI API with the function schema
