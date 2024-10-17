@@ -22,5 +22,4 @@ COPY streamlit-app /app
 EXPOSE 8080
 
 # Run main.py when the container launches
-CMD ["streamlit", "run", "--server.port", "8080", "--server.address", "0.0.0.0", "main.py"]
-
+CMD ["streamlit", "run", "main.py", "--server.port=8080", "--server.address=0.0.0.0"]
